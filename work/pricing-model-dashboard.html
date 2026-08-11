@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="UX case study: redesigning an internal model-operations dashboard to reduce error risk and enable business ownership." />
+  <title>Pricing Model Operations Dashboard · Sarah Rhee</title>
+  <link rel="stylesheet" href="../css/styles-editorial.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="../index.html" class="logo">Sarah Rhee</a>
+      <div class="header-right">
+        <p class="site-meta">UX Case Study · 2026</p>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../index.html">Work</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="mailto:sarah.ys.rhee@gmail.com">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <!-- BENTO HERO -->
+    <section class="bento" aria-labelledby="title">
+      <div class="tile tile-primary">
+        <p class="eyebrow-accent">UX Case Study</p>
+        <h1 id="title">Pricing Model Operations Dashboard</h1>
+        <p class="subtitle">
+          Redesigning an internal model-ops dashboard to reduce error risk and
+          enable business ownership.
+        </p>
+        <dl class="case-summary">
+          <div>
+            <dt>Users</dt>
+            <dd>Pricing operators + modeling analysts.</dd>
+          </div>
+          <div>
+            <dt>Job</dt>
+            <dd>Operate, validate, and release pricing models end to end.</dd>
+          </div>
+          <div>
+            <dt>Friction</dt>
+            <dd>Input errors and low confidence. Users couldn't see the impact of their changes.</dd>
+          </div>
+          <div>
+            <dt>What I changed</dt>
+            <dd>Workflow IA across 8 screens, an in-context guidance system, and a handoff that lets the business own its own configuration.</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Design delivered Jun 26; build Q3; metrics plan ready.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="tile tile-visual">
+        <img src="img/home-real.png" width="1600" height="1000"
+             alt="The redesigned Home / Overview screen: a dashboard with at-a-glance summary cards, model status, and quick access to key workflow phases."
+             loading="eager" decoding="async" />
+        <figcaption>Home / Overview: at-a-glance summary and quick access.</figcaption>
+      </figure>
+
+      <div class="tile tile-status">
+        <p class="small-label">Status</p>
+        <p class="badge">Design delivered</p>
+        <p class="tile-status-note">Jun 26, 2026 · Engineering build scheduled Q3.</p>
+      </div>
+
+      <ul class="tile tile-stats" aria-label="Key stats">
+        <li class="chip">
+          <span class="chip-num">1 to 8 screens</span>
+          <span class="chip-label">Expanded from a single view to an end-to-end suite: Build → Validate → Release → Monitor.</span>
+        </li>
+        <li class="chip">
+          <span class="chip-num">High-volume, high-value</span>
+          <span class="chip-label">A small team makes high-volume, high-value pricing decisions daily, so usability and error-safety carry real financial weight.</span>
+        </li>
+        <li class="chip">
+          <span class="chip-num">Excel to guided app</span>
+          <span class="chip-label">Replaced an error-prone Excel-upload process with in-app inputs, inline guidance, and validation.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SUMMARY PANEL (complementary metadata, not a repeat of the hero) -->
+    <section class="summary" aria-labelledby="summary-h">
+      <h2 id="summary-h" class="visually-hidden">Project details</h2>
+      <dl class="summary-grid">
+        <div class="summary-item">
+          <dt>My role &amp; ownership</dt>
+          <dd>Sole UX designer. Owned research, IA, interaction &amp; UI design, and prototyping.
+            Did not own the model or process logic. Product owns the Reference Guide content.</dd>
+        </div>
+        <div class="summary-item">
+          <dt>Team &amp; cadence</dt>
+          <dd>Partnered with product and modeling &amp; analytics. Weekly product reviews;
+            informal feedback sessions with pricing and modeling users.</dd>
+        </div>
+        <div class="summary-item">
+          <dt>Methods</dt>
+          <dd>Stakeholder interviews, synthesis, IA mapping, lo-fi to hi-fi flows,
+            clickable prototypes, and informal feedback rounds.</dd>
+        </div>
+        <div class="summary-item">
+          <dt>Timeline</dt>
+          <dd>Jan 21 – Jun 26, 2026 (~5 months). Design complete by June 30;
+            engineering build scheduled Q3.</dd>
+        </div>
+      </dl>
+      <p class="summary-footnote"><span aria-hidden="true">*</span> Runtime reduction (hours to minutes) is attributable to the pricing model, not UX.</p>
+    </section>
+
+    <!-- LAYOUT: TOC + CONTENT -->
+    <div class="layout">
+
+      <!-- Mobile TOC -->
+      <details class="toc-mobile">
+        <summary>Jump to section</summary>
+        <nav aria-label="Case study sections (mobile)">
+          <ol>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#handoff">Handoff</a></li>
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#screens">Screens</a></li>
+            <li><a href="#config-deep">Configurations deep dive</a></li>
+            <li><a href="#compare-deep">Compare &amp; Analyze deep dive</a></li>
+          </ol>
+        </nav>
+      </details>
+
+      <!-- Desktop sticky TOC -->
+      <nav class="toc-desktop" aria-label="Case study sections">
+        <p class="toc-title">On this page</p>
+        <ol>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#handoff">Handoff</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#screens">Screens</a></li>
+          <li><a href="#config-deep">Configurations deep dive</a></li>
+          <li><a href="#compare-deep">Compare &amp; Analyze deep dive</a></li>
+        </ol>
+      </nav>
+
+      <div class="content">
+
+        <!-- IMPACT -->
+        <section id="impact" class="section" aria-labelledby="impact-h">
+          <h2 id="impact-h">Impact: what changed</h2>
+          <p class="tldr">The new pricing model made the workflow
+            faster. The redesigned dashboard made that speed usable and safe for the business to own.</p>
+
+          <div class="attribution">
+            <div class="attribution-col">
+              <h3>Model drove</h3>
+              <p class="big-metric">Hours to minutes</p>
+              <p class="muted">Workflow runtime reduction is attributable to the new
+                pricing model, not to UX.</p>
+            </div>
+            <div class="attribution-col">
+              <h3>UX enabled</h3>
+              <ul class="clean-list">
+                <li>Reduced error risk on inputs that weren't intuitive.</li>
+                <li>Gave users one place to see status across the workflow.</li>
+                <li>Handed configuration ownership to the pricing team.</li>
+              </ul>
+              <p class="muted">Outcome metrics will be captured after the Q3 build ships.</p>
+            </div>
+          </div>
+
+          <h3 class="proofs-h">What the redesign did</h3>
+          <ul class="proofs">
+            <li class="proof">
+              <p class="proof-claim">Reduced error risk with in-context guidance</p>
+              <p class="proof-evidence">Product's Excel-based process was error-prone. I moved inputs in-app with dynamic
+                helper text and inline guidance, catching mistakes at input time.</p>
+              <p class="proof-artifact"><a href="#config-deep">See the Configurations before and after</a></p>
+            </li>
+            <li class="proof">
+              <p class="proof-claim">Gave users an overview of the workflow</p>
+              <p class="proof-evidence">Users had no single place to see status, so I restructured the IA into a 4-phase
+                lifecycle with a &ldquo;what this affects&rdquo; side panel.</p>
+              <p class="proof-artifact"><a href="#ia">See the Build, Validate, Release, Monitor map</a></p>
+            </li>
+            <li class="proof">
+              <p class="proof-claim">Let the business own its configuration</p>
+              <p class="proof-evidence">Changes once routed through product. The Configurations screen lets the pricing team
+                set parameters directly.</p>
+              <p class="proof-artifact"><a href="#handoff">See the ownership shift</a></p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- HANDOFF (elevated: this is the highest-value outcome) -->
+        <section id="handoff" class="section" aria-labelledby="handoff-h">
+          <h2 id="handoff-h">Handoff: shifting ownership to the business</h2>
+          <p class="tldr">The biggest change is who can act. Configurations lets the pricing team
+            own its parameters instead of filing requests to product.</p>
+          <p>Every parameter change, like excluding certain loan types from pricing, used to go
+            through product as a request: a queue, a translation step, and a place for errors to
+            hide. The redesign moves that control to the people who own the decision.</p>
+          <figure class="diagram-figure">
+            <div class="handoff-diagram">
+              <div class="handoff-lane handoff-before">
+                <p class="handoff-lane-title"><span class="ba-tag ba-before">Before</span> Routed through product</p>
+                <ol class="handoff-steps">
+                  <li>Pricing team</li>
+                  <li class="handoff-arrow" aria-hidden="true">→</li>
+                  <li>Files a change request</li>
+                  <li class="handoff-arrow" aria-hidden="true">→</li>
+                  <li>Product team translates &amp; edits</li>
+                  <li class="handoff-arrow" aria-hidden="true">→</li>
+                  <li>Change goes live</li>
+                </ol>
+                <p class="handoff-note">A queue, a translation step, and a place for errors to hide.</p>
+              </div>
+              <div class="handoff-lane handoff-after">
+                <p class="handoff-lane-title"><span class="ba-tag ba-after">After</span> Owned by pricing</p>
+                <ol class="handoff-steps">
+                  <li>Pricing team</li>
+                  <li class="handoff-arrow" aria-hidden="true">→</li>
+                  <li>Edits configuration directly <span class="handoff-guard">with guardrails</span></li>
+                  <li class="handoff-arrow" aria-hidden="true">→</li>
+                  <li>Change goes live</li>
+                </ol>
+                <p class="handoff-note">Validation and &ldquo;what this affects&rdquo; make self-service safe.</p>
+              </div>
+            </div>
+            <figcaption>Before: changes routed through product. After: the pricing team edits configurations directly.</figcaption>
+          </figure>
+          <dl class="mechanism">
+            <div>
+              <dt>What changed</dt>
+              <dd>Configuration parameters became directly editable by the pricing team, with guardrails
+                (validation + &ldquo;what this affects&rdquo;) built into the screen.</dd>
+            </div>
+            <div>
+              <dt>Why it's safe</dt>
+              <dd>The same guidance that reduces errors also makes self-service ownership safe.</dd>
+            </div>
+            <div>
+              <dt>Boundary</dt>
+              <dd>The pricing team owns parameters. Product still owns Reference Guide content and the
+                underlying model logic. Clear lines, not a free-for-all.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- PROBLEM -->
+        <section id="problem" class="section" aria-labelledby="problem-h">
+          <h2 id="problem-h">Problem</h2>
+          <p class="tldr">A fast new model shipped with a bare-bones tool. The business made
+            errors, couldn't see impact, and had to route every change through product.</p>
+          <p>The model cut runtime from hours to minutes, but managing it meant editing configs in
+            Excel and filing a request to product for every change. A small team makes high-volume,
+            high-value pricing decisions daily, so one mishandled input carries real financial
+            weight. The risk was never speed. It was confidence, correctness, and control.</p>
+        </section>
+
+        <!-- CURRENT-STATE WORKFLOW -->
+        <section id="current-state" class="section" aria-labelledby="current-state-h">
+          <h2 id="current-state-h">Current-state workflow: what I mapped first</h2>
+          <p class="tldr">Before designing anything, I mapped the real end-to-end flow. It exposed
+            three gaps that shaped everything after.</p>
+          <p class="nugget-label">The three gaps I found</p>
+          <ul class="nugget-grid">
+            <li class="nugget-card"><strong>Human error risk</strong> Configs edited through
+              error-prone Excel uploads. No validation, easy to break silently.</li>
+            <li class="nugget-card"><strong>Unclear governance</strong> Permissions and ownership
+              weren't defined. Who could change what was ambiguous.</li>
+            <li class="nugget-card"><strong>Low visibility</strong> No view into impact, what's live,
+              what failed, or whether the model was adding value.</li>
+          </ul>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the end-to-end flow</span></summary>
+          <p>The workflow blends daily human pricing decisions with system aggregation and
+            model-driven pricing (real-time scoring plus biweekly retraining). It spans several
+            tools: business analysis for year-over-year insight, Excel-based configuration, CSMT
+            margins, and an aggregation platform (Renaizon) that feeds the real-time bid and price flow.</p>
+
+          <figure class="diagram-figure">
+            <svg class="diagram-svg" viewBox="0 0 900 560" role="img"
+                 aria-label="Current-state flow diagram: daily business input and product-managed model configs both feed an aggregation hub; the hub supplies a biweekly retraining loop and a daily real-time scoring loop, which together produce published pricing.">
+              <defs>
+                <marker id="arrowhead-flow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" class="diagram-arrowhead" />
+                </marker>
+              </defs>
+              <line class="diagram-arrow" x1="160" y1="120" x2="345" y2="192" marker-end="url(#arrowhead-flow)" />
+              <line class="diagram-arrow" x1="740" y1="120" x2="555" y2="192" marker-end="url(#arrowhead-flow)" />
+              <line class="diagram-arrow" x1="370" y1="250" x2="205" y2="298" marker-end="url(#arrowhead-flow)" />
+              <line class="diagram-arrow" x1="530" y1="250" x2="695" y2="298" marker-end="url(#arrowhead-flow)" />
+              <line class="diagram-arrow" x1="170" y1="400" x2="335" y2="478" marker-end="url(#arrowhead-flow)" />
+              <line class="diagram-arrow" x1="730" y1="400" x2="565" y2="478" marker-end="url(#arrowhead-flow)" />
+
+              <rect class="diagram-box" x="40" y="30" width="240" height="90" rx="8" />
+              <text class="diagram-loop-tag" x="56" y="52" font-size="11">DAILY</text>
+              <text class="diagram-box-title" x="56" y="76" font-size="17">Business Input</text>
+              <text class="diagram-box-desc" x="56" y="96" font-size="12">CM adjuster file + CSMT margins</text>
+
+              <rect class="diagram-box" x="620" y="30" width="240" height="90" rx="8" />
+              <text class="diagram-loop-tag" x="636" y="52" font-size="11">PRODUCT-MANAGED</text>
+              <text class="diagram-box-title" x="636" y="76" font-size="17">Model Configs</text>
+              <text class="diagram-box-desc" x="636" y="96" font-size="12">Edited in Excel, uploaded to Streamlit</text>
+
+              <rect class="diagram-box-accent" x="330" y="170" width="240" height="80" rx="8" />
+              <text class="diagram-box-title" x="346" y="205" font-size="17">Aggregation</text>
+              <text class="diagram-box-desc" x="346" y="226" font-size="12">Renaizon collects inputs downstream</text>
+
+              <rect class="diagram-box" x="40" y="300" width="240" height="100" rx="8" />
+              <text class="diagram-loop-tag" x="56" y="322" font-size="11">BIWEEKLY</text>
+              <text class="diagram-box-title" x="56" y="346" font-size="17">Retraining</text>
+              <text class="diagram-box-desc" x="56" y="366" font-size="12">Batch retrain on historical loan +</text>
+              <text class="diagram-box-desc" x="56" y="382" font-size="12">performance data; approve, then swap</text>
+
+              <rect class="diagram-box" x="620" y="300" width="240" height="100" rx="8" />
+              <text class="diagram-loop-tag" x="636" y="322" font-size="11">DAILY</text>
+              <text class="diagram-box-title" x="636" y="346" font-size="17">Real-Time Scoring</text>
+              <text class="diagram-box-desc" x="636" y="366" font-size="12">Bid tapes batched in 30-min windows,</text>
+              <text class="diagram-box-desc" x="636" y="382" font-size="12">priced via Renaizon base + model price</text>
+
+              <rect class="diagram-box-accent" x="330" y="450" width="240" height="80" rx="8" />
+              <text class="diagram-box-title" x="346" y="485" font-size="17">Published Pricing</text>
+              <text class="diagram-box-desc" x="346" y="506" font-size="12">Sent to third-party platforms</text>
+            </svg>
+            <figcaption>The current-state flow I mapped. Four loops: daily business input, product-managed configs, biweekly retraining, and real-time scoring, all resolving to published pricing.</figcaption>
+          </figure>
+
+          <dl class="mechanism">
+            <div>
+              <dt>Business input (daily)</dt>
+              <dd>The business sets strategy from market conditions and performance, then updates a
+                CM adjuster file and CSMT margins, within role-based allowances and with written
+                approval. Inputs flow downstream and aggregate in Renaizon.</dd>
+            </div>
+            <div>
+              <dt>Model configs (product)</dt>
+              <dd>Model configs are edited in Excel and re-uploaded to Streamlit based on Capital
+                Markets suggestions. Pain points: weak error monitoring and low visibility into
+                what's live or what failed.</dd>
+            </div>
+            <div>
+              <dt>Retraining (biweekly)</dt>
+              <dd>A batch pulls aggregated, competitive, and risk-rating data, retrains on historical
+                loan + performance data, and produces a new model. Product, analytics, and modeling approve
+                or reject. An authorized user swaps it into production, an action that can't be undone.</dd>
+            </div>
+            <div>
+              <dt>Real-time scoring (daily)</dt>
+              <dd>Correspondent bid tapes are batched in 30-minute windows, priced via Renaizon's base
+                price plus a model price, then finalized and published to third-party platforms.</dd>
+            </div>
+          </dl>
+          </details>
+        </section>
+
+        <!-- DISCOVERY -->
+        <section id="discovery" class="section" aria-labelledby="discovery-h">
+          <h2 id="discovery-h">Discovery: the two-sided problem <span class="phase">Jan–Feb</span></h2>
+          <p>Product's ask was simple: let analysts edit the model's configurations easily. But when
+            I sat with the pricing team, a second problem surfaced. They didn't just want to change
+            parameters, they wanted to understand the impact of every edit, with enough context to
+            trust it.</p>
+          <blockquote class="nugget">
+            <p>My role wasn't to collect requirements, it was to broker a gap. Product optimized for
+              speed of editing. The business optimized for confidence in the outcome. Every screen
+              after this had to serve both.</p>
+          </blockquote>
+
+          <figure class="diagram-figure">
+            <svg class="diagram-svg" viewBox="0 0 960 600" role="img"
+                 aria-label="An early sketch working out which screens the tool needs: rough boxes labeled Manage, Edit, and Analyze, connected with loose arrows and margin notes like 'who owns this?' and 'impact preview?', with Edit circled as the focus.">
+              <rect x="0" y="0" width="960" height="600" fill="var(--paper-sunken)" opacity="0.35" />
+              <path class="sketch-box" d="M60,120 L340,116 L344,268 L58,274 Z" />
+              <text class="sketch-label" x="110" y="205" font-size="26">Manage</text>
+              <path class="sketch-box" d="M400,110 L680,118 L676,272 L404,266 Z" />
+              <text class="sketch-label" x="470" y="205" font-size="26">Edit</text>
+              <ellipse class="sketch-arrow" cx="540" cy="192" rx="168" ry="98" opacity="0.7" />
+              <path class="sketch-box" d="M740,122 L900,116 L904,266 L744,272 Z" />
+              <text class="sketch-label" x="765" y="200" font-size="24">Analyze</text>
+
+              <path class="sketch-arrow" d="M344,190 C368,186 378,192 400,190" />
+              <path class="sketch-arrow" d="M680,190 C705,186 716,192 740,190" />
+
+              <path class="sketch-scribble" d="M90,320 q10,-8 22,0 q10,8 22,0" />
+              <text class="sketch-note" x="60" y="360" font-size="17">who owns changes?</text>
+
+              <path class="sketch-scribble" d="M430,320 q10,-8 22,0 q10,8 22,0" />
+              <text class="sketch-note" x="404" y="360" font-size="17">impact preview,</text>
+              <text class="sketch-note" x="404" y="382" font-size="17">not just edit</text>
+
+              <path class="sketch-scribble" d="M770,320 q10,-8 22,0 q10,8 22,0" />
+              <text class="sketch-note" x="744" y="360" font-size="17">baseline checks?</text>
+
+              <text class="sketch-note" x="60" y="470" font-size="16">3 screens isn't the system, it's the tension:</text>
+              <text class="sketch-note" x="60" y="494" font-size="16">speed of editing vs. confidence in outcome</text>
+            </svg>
+            <figcaption>My first sketch wasn't a layout. I was working out the system: what screens
+              need to exist, and what decision each one owns. Manage, edit, analyze fell out of the
+              discovery tension.</figcaption>
+          </figure>
+
+          <h3>What the interviews surfaced</h3>
+          <p>Interviews with pricing and modeling users surfaced four consistent themes.</p>
+          <blockquote class="nugget">
+            <p class="nugget-label">What I learned</p>
+            <p>Users hit unfamiliar terminology and assumed a steep learning curve, but the pricing
+              concepts hadn't changed. That shifted the problem from “teach a whole new system”
+              to “bridge the vocabulary.”</p>
+          </blockquote>
+          <p class="nugget-label">What came up in interviews</p>
+          <ul class="nugget-grid">
+            <li class="nugget-card"><strong>Context gap</strong> <q>I don't always know what a field
+              actually changes.</q></li>
+            <li class="nugget-card"><strong>No overview</strong> No single place to see status across
+              the workflow.</li>
+            <li class="nugget-card"><strong>Fragile inputs</strong> Formatting and typos silently
+              produced bad states.</li>
+            <li class="nugget-card"><strong>Ownership ambiguity</strong> Unclear which team should
+              change what.</li>
+          </ul>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: how discovery played out</span></summary>
+          <details>
+            <summary>The open questions the current-state map raised</summary>
+            <ul>
+              <li>What are the most common mistakes to prevent (typos, incorrect ranges, wrong
+                counterparties), and should certain configs be non-editable?</li>
+              <li>Should users preview impact before applying a change, or is inline validation enough?</li>
+              <li>Which failures are informational vs. blocking, and how does a user know what's live?</li>
+              <li>If a model doesn't send within its SLA window, is it healthy, and do we need rollback,
+                clear ownership, and approval?</li>
+              <li>How do teams measure whether the model actually helped win loans or improved profit/volume?</li>
+            </ul>
+          </details>
+          <p>Scope evolution: as findings landed and early feedback came back
+            positive, the work expanded from a single screen to eight, a full operational suite
+            spanning build, validate, release, and monitor.</p>
+          <details>
+            <summary>Iteration notes (deeper detail)</summary>
+            <p>Design ran through March with steady informal feedback from the pricing
+              and modeling &amp; analytics teams, plus weekly reviews with product. Delivery from
+              April to June was iterative. I used VS Code to build clickable prototypes and
+              iterate quickly with users.</p>
+          </details>
+          </details>
+        </section>
+
+        <!-- IA & SYSTEM LOGIC -->
+        <section id="ia" class="section" aria-labelledby="ia-h">
+          <h2 id="ia-h">Information architecture &amp; system logic</h2>
+          <p class="tldr">One screen became a coherent lifecycle. I made the model's own phases the
+            navigation, so eight screens read as four steps: Build, Validate, Release, Monitor.</p>
+          <p class="nugget-label">Eight screens, four phases</p>
+          <ul class="nugget-grid">
+            <li class="nugget-card"><strong>Build</strong> Set up and parameterize a model run.
+              Screens: Train, Configurations.</li>
+            <li class="nugget-card"><strong>Validate</strong> Check calibration and stability before
+              release. Screen: Compare &amp; Analyze.</li>
+            <li class="nugget-card"><strong>Release</strong> Review deploy-ready items and push.
+              Screen: Deploy.</li>
+            <li class="nugget-card"><strong>Monitor</strong> Audit, catalog, and govern after release.
+              Screens: Event Log, Registry, Admin.</li>
+          </ul>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the full lifecycle map</span></summary>
+          <figure class="diagram-figure">
+            <ol class="ia-flow" aria-label="Four-phase model lifecycle with the eight screens grouped under each phase">
+              <li class="ia-phase" data-phase="Build">
+                <p class="ia-phase-name">Build</p>
+                <p class="ia-phase-desc">Set up and parameterize a model run.</p>
+                <ul class="ia-screens">
+                  <li>Train</li>
+                  <li>Configurations</li>
+                </ul>
+              </li>
+              <li class="ia-phase" data-phase="Validate">
+                <p class="ia-phase-name">Validate</p>
+                <p class="ia-phase-desc">Check calibration, stability, and robustness before release.</p>
+                <ul class="ia-screens">
+                  <li>Compare &amp; Analyze</li>
+                </ul>
+              </li>
+              <li class="ia-phase" data-phase="Release">
+                <p class="ia-phase-name">Release</p>
+                <p class="ia-phase-desc">Review deploy-ready items and push to release.</p>
+                <ul class="ia-screens">
+                  <li>Deploy</li>
+                </ul>
+              </li>
+              <li class="ia-phase" data-phase="Monitor">
+                <p class="ia-phase-name">Monitor</p>
+                <p class="ia-phase-desc">Audit, catalog, and govern after release.</p>
+                <ul class="ia-screens">
+                  <li>Event Log</li>
+                  <li>Model Registry</li>
+                  <li>Admin</li>
+                </ul>
+              </li>
+            </ol>
+            <figcaption>The 8 screens grouped into a 4-phase lifecycle. Phase order doubles as the mental model.</figcaption>
+          </figure>
+          <p class="callout" role="note">
+            The system rules I set: consistent phase labeling on every screen, a shared
+            &ldquo;what this affects&rdquo; side panel, and one guidance pattern (tooltip to side panel)
+            reused everywhere, so the 8 screens read as one system, not eight tools. Monitor is also
+            where the current-state gaps land: run status and &ldquo;what's live,&rdquo; blocking vs.
+            informational failures, role-based permissions with history, and a path toward quantifying
+            model value.
+          </p>
+          </details>
+        </section>
+
+        <!-- REFERENCE GUIDE -->
+        <section id="reference-guide" class="section" aria-labelledby="rg-h">
+          <h2 id="rg-h">Reference Guide UX pattern</h2>
+          <p class="tldr">New vocabulary, same pricing concepts. So instead of training people, I
+            put the guidance in the screen: inline links open a side-panel guide, and helper text
+            reacts as you type. That guidance is what makes self-service ownership safe.</p>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the pattern &amp; states</span></summary>
+          <figure class="figure-zoom">
+            <a href="img/screen-reference.png" target="_blank" rel="noopener"
+               aria-label="Open the full-size Reference Guide screen in a new tab">
+              <img src="img/screen-reference.png" width="1600" height="1000"
+                   alt="A configuration screen with a Reference Guide side panel open, showing constraint-type cards with definitions and impact notes, and dynamic helper text below an input field."
+                   loading="lazy" decoding="async" />
+            </a>
+            <figcaption>Inline tooltip links open a side-panel Reference Guide. Helper text updates with input. <a href="img/screen-reference.png" target="_blank" rel="noopener">Open full size ↗</a></figcaption>
+          </figure>
+
+          <h3>Side-panel Reference Guide</h3>
+          <dl class="mechanism">
+            <div>
+              <dt>Trigger</dt>
+              <dd>Inline tooltip links beside labels and inputs open the guide in a side panel, in context, no navigation away.</dd>
+            </div>
+            <div>
+              <dt>Content types</dt>
+              <dd>Field definitions, accepted formats, and &ldquo;what this affects&rdquo; impact notes.</dd>
+            </div>
+            <div>
+              <dt>Ownership</dt>
+              <dd>Maintained by the product team, so guidance stays current as the model evolves.</dd>
+            </div>
+          </dl>
+
+          <h3>Dynamic helper text</h3>
+          <p>Helper text below each input responds to what the user types, which directly supports the error-reduction goal.</p>
+          <ul class="states-strip" aria-label="Helper text states">
+            <li class="state state-empty">
+              <span class="state-tag">Empty</span>
+              <span class="state-input">Exclusion list</span>
+              <span class="state-help">Enter loan-type codes, comma-separated (e.g., A1, B2).</span>
+            </li>
+            <li class="state state-valid">
+              <span class="state-tag">Valid</span>
+              <span class="state-input">A1, B2, C3</span>
+              <span class="state-help">3 loan types will be excluded from pricing.</span>
+            </li>
+            <li class="state state-error">
+              <span class="state-tag">Format error</span>
+              <span class="state-input">A1; B2</span>
+              <span class="state-help">Use commas, not semicolons. &ldquo;A1; B2&rdquo; won't be recognized.</span>
+            </li>
+          </ul>
+          </details>
+        </section>
+
+        <!-- SCREENS -->
+        <section id="screens" class="section" aria-labelledby="screens-h">
+          <h2 id="screens-h">Screens delivered</h2>
+          <p class="tldr">Eight screens across four operational phases:
+            Build, Validate, Release, and Monitor.</p>
+
+          <div class="screens-gallery">
+            <figure>
+              <img src="img/screen-train.png" width="1600" height="1000"
+                   alt="Train screen for configuring and kicking off model training runs, with a training queue table."
+                   loading="lazy" decoding="async" />
+              <figcaption>Train · Build</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-configurations.png" width="1600" height="1000"
+                   alt="Configurations screen for managing model and pipeline settings with batch, real-time, and LMI config cards, plus a deploy-ready table."
+                   loading="lazy" decoding="async" />
+              <figcaption>Configurations · Build</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-compare.png" width="1600" height="1000"
+                   alt="Compare and analyze screen showing baseline vs. challenger suite selection and evaluation period inputs."
+                   loading="lazy" decoding="async" />
+              <figcaption>Compare &amp; Analyze · Validate</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-deploy.png" width="1600" height="1000"
+                   alt="Deploy screen showing the current production model and a scheduling flow for promoting a candidate model."
+                   loading="lazy" decoding="async" />
+              <figcaption>Deploy · Release</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-eventlog.png" width="1600" height="1000"
+                   alt="Event Log screen showing an audit trail of training runs, deployments, and configuration changes with status and timestamps."
+                   loading="lazy" decoding="async" />
+              <figcaption>Event Log · Monitor</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-modelregistry.png" width="1600" height="1000"
+                   alt="Model Registry screen listing trained model versions with status (production, parallel, staging, archived) and deployment lane."
+                   loading="lazy" decoding="async" />
+              <figcaption>Model Registry · Monitor</figcaption>
+            </figure>
+            <figure>
+              <img src="img/screen-admin.png" width="1600" height="1000"
+                   alt="Admin screen for managing users, roles, and permissions on the dashboard."
+                   loading="lazy" decoding="async" />
+              <figcaption>Admin · Monitor</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- CONFIGURATIONS DEEP-DIVE -->
+        <section id="config-deep" class="section" aria-labelledby="config-deep-h">
+          <h2 id="config-deep-h">Deep dive: Configurations screen</h2>
+          <p class="tldr">Configurations carries the two
+            biggest outcomes: error reduction and the handoff to the business. Here's the
+            before and after, and the decisions behind it.</p>
+
+          <div class="beforeafter">
+            <figure>
+              <svg class="diagram-svg" viewBox="0 0 960 600" role="img"
+                   aria-label="Before: an abstract Excel spreadsheet grid with a dashed warning-colored arrow pointing to a plain upload box, representing edits made offline and uploaded with no in-app validation or guidance.">
+                <rect class="grid-header" x="40" y="40" width="440" height="44" />
+                <text class="grid-label" x="60" y="68" font-size="14">Q1 Rate Adjustments.xlsx</text>
+                <g>
+                  <rect class="grid-cell" x="40" y="84" width="110" height="36" />
+                  <rect class="grid-cell" x="150" y="84" width="110" height="36" />
+                  <rect class="grid-cell" x="260" y="84" width="110" height="36" />
+                  <rect class="grid-cell" x="370" y="84" width="110" height="36" />
+                  <rect class="grid-cell" x="40" y="120" width="110" height="36" />
+                  <rect class="grid-cell" x="150" y="120" width="110" height="36" />
+                  <rect class="grid-cell" x="260" y="120" width="110" height="36" />
+                  <rect class="grid-cell" x="370" y="120" width="110" height="36" />
+                  <rect class="grid-cell" x="40" y="156" width="110" height="36" />
+                  <rect class="grid-cell" x="150" y="156" width="110" height="36" />
+                  <rect class="grid-cell" x="260" y="156" width="110" height="36" />
+                  <rect class="grid-cell" x="370" y="156" width="110" height="36" />
+                  <rect class="grid-cell" x="40" y="192" width="110" height="36" />
+                  <rect class="grid-cell" x="150" y="192" width="110" height="36" />
+                  <rect class="grid-cell" x="260" y="192" width="110" height="36" />
+                  <rect class="grid-cell" x="370" y="192" width="110" height="36" />
+                  <circle class="grid-cell-val" cx="70" cy="102" r="2.5" />
+                  <rect class="grid-cell-val" x="170" y="96" width="60" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="280" y="96" width="45" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="60" y="134" width="70" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="170" y="134" width="50" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="390" y="134" width="55" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="60" y="170" width="55" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="280" y="170" width="65" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="390" y="170" width="45" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="60" y="206" width="60" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="170" y="206" width="55" height="7" rx="3.5" />
+                  <rect class="grid-cell-val" x="280" y="206" width="50" height="7" rx="3.5" />
+                </g>
+                <text class="sketch-note" x="40" y="255" font-size="14">edited offline, no validation</text>
+
+                <path class="upload-path" d="M260,280 C260,340 500,340 500,395" marker-end="url(#arrowhead-upload)" />
+                <defs>
+                  <marker id="arrowhead-upload" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                    <path d="M0,0 L8,4 L0,8 Z" fill="var(--bad)" />
+                  </marker>
+                </defs>
+
+                <rect class="upload-box" x="380" y="410" width="280" height="110" rx="8" />
+                <text class="diagram-box-title" x="404" y="450" font-size="16">Upload to Streamlit</text>
+                <text class="diagram-box-desc" x="404" y="472" font-size="12">Manual re-upload replaces the file</text>
+                <text class="diagram-box-desc" x="404" y="490" font-size="12">wholesale. No inline checks.</text>
+              </svg>
+              <figcaption><span class="ba-tag ba-before">Before</span> Edits were made in an Excel
+                sheet and uploaded into Streamlit. No validation, no guidance, and no view of what
+                a change affected.</figcaption>
+            </figure>
+            <figure>
+              <img src="img/config-after.png" width="1600" height="1000"
+                   alt="After: configurations edited directly in-app in a required/custom constraint table, with an inline banner linking to the Reference Guide."
+                   loading="lazy" decoding="async" />
+              <figcaption><span class="ba-tag ba-after">After</span> Edits move into the app: a
+                grouped constraint table, an inline guidance banner, and a Reference Guide link.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Decisions on this screen</h3>
+          <ul>
+            <li>Fields grouped by what they affect, not by data type, so an operator
+              reasons in terms of outcomes, not database columns.</li>
+            <li>Validation is inline and specific (&ldquo;use commas, not semicolons&rdquo;)
+              rather than a generic &ldquo;invalid input&rdquo; at submit time.</li>
+            <li>Batch and real-time edits share one layout, so the pricing team learns
+              the screen once and reuses it for handoff.</li>
+          </ul>
+
+          <h3>The pattern I rejected</h3>
+          <p>My first instinct was a form, the pattern everyone knows. It fell apart on contact with
+            the data: a single configuration has hundreds of parameters, so a form becomes a scroll
+            marathon where you can't compare values or edit in bulk. I moved to a dynamic, editable
+            table instead, so users scan, compare, and change values in place, the way they already
+            think about the data.</p>
+
+          <figure class="reject-visual" aria-labelledby="reject-visual-cap">
+            <div class="reject-panel">
+              <p class="reject-cap"><span class="ba-tag ba-before">Before</span> Form: one field at a time</p>
+              <svg class="rv-svg" viewBox="0 0 220 150" role="img"
+                   aria-label="An abstract form: many stacked label and input rows with a short scrollbar thumb, showing a long page you scroll through one field at a time.">
+                <g transform="scale(1,0.85)">
+                <rect class="rv-card" x="6" y="6" width="208" height="164" rx="12" />
+                <g aria-hidden="true">
+                  <rect class="rv-label" x="24" y="20" width="40" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="27" width="168" height="11" rx="4" />
+                  <rect class="rv-label" x="24" y="44" width="34" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="51" width="80" height="11" rx="4" />
+                  <rect class="rv-label" x="112" y="44" width="30" height="5" rx="2.5" />
+                  <rect class="rv-field" x="112" y="51" width="80" height="11" rx="4" />
+                  <rect class="rv-label" x="24" y="68" width="34" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="75" width="168" height="11" rx="4" />
+                  <rect class="rv-label" x="24" y="92" width="30" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="99" width="80" height="11" rx="4" />
+                  <rect class="rv-label" x="112" y="92" width="38" height="5" rx="2.5" />
+                  <rect class="rv-field" x="112" y="99" width="80" height="11" rx="4" />
+                  <rect class="rv-label" x="24" y="116" width="38" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="123" width="168" height="11" rx="4" />
+                  <rect class="rv-label" x="24" y="140" width="50" height="5" rx="2.5" />
+                  <rect class="rv-field" x="24" y="147" width="168" height="11" rx="4" />
+                  <rect class="rv-scroll-track" x="200" y="20" width="5" height="138" rx="2.5" />
+                  <rect class="rv-scroll-thumb" x="200" y="20" width="5" height="26" rx="2.5" />
+                </g>
+                <g class="rv-reject-x" aria-hidden="true">
+                  <line x1="6" y1="6" x2="214" y2="170" />
+                  <line x1="214" y1="6" x2="6" y2="170" />
+                </g>
+                </g>
+              </svg>
+            </div>
+            <div class="reject-arrow" aria-hidden="true">&#8594;</div>
+            <div class="reject-panel">
+              <p class="reject-cap"><span class="ba-tag ba-after">After</span> Table: scan, compare, edit in place</p>
+              <svg class="rv-svg" viewBox="0 0 220 150" role="img"
+                   aria-label="An abstract editable table: a dense grid of many rows and columns with two highlighted cells being edited in place, so values can be scanned and compared side by side.">
+                <g transform="scale(1,0.85)">
+                <rect class="rv-card" x="6" y="6" width="208" height="164" rx="12" />
+                <g aria-hidden="true">
+                  <rect class="rv-header" x="16" y="18" width="188" height="16" rx="3" />
+                  <rect class="rv-frame" x="16" y="18" width="188" height="140" rx="3" />
+                  <line class="rv-line" x1="47.3" y1="18" x2="47.3" y2="158" />
+                  <line class="rv-line" x1="78.7" y1="18" x2="78.7" y2="158" />
+                  <line class="rv-line" x1="110" y1="18" x2="110" y2="158" />
+                  <line class="rv-line" x1="141.3" y1="18" x2="141.3" y2="158" />
+                  <line class="rv-line" x1="172.7" y1="18" x2="172.7" y2="158" />
+                  <line class="rv-line" x1="16" y1="34" x2="204" y2="34" />
+                  <line class="rv-line" x1="16" y1="52" x2="204" y2="52" />
+                  <line class="rv-line" x1="16" y1="70" x2="204" y2="70" />
+                  <line class="rv-line" x1="16" y1="88" x2="204" y2="88" />
+                  <line class="rv-line" x1="16" y1="106" x2="204" y2="106" />
+                  <line class="rv-line" x1="16" y1="124" x2="204" y2="124" />
+                  <line class="rv-line" x1="16" y1="140" x2="204" y2="140" />
+                  <rect class="rv-hcell" x="22" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-hcell" x="53" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-hcell" x="85" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-hcell" x="116" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-hcell" x="147" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-hcell" x="179" y="23" width="18" height="5" rx="2.5" />
+                  <rect class="rv-cell-active" x="47.3" y="34" width="31.4" height="18" rx="1" />
+                  <line class="rv-caret" x1="53" y1="39" x2="53" y2="47" />
+                  <rect class="rv-cell-active" x="110" y="106" width="31.4" height="18" rx="1" />
+                  <line class="rv-caret" x1="116" y1="111" x2="116" y2="119" />
+                  <rect class="rv-val" x="22" y="41" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="41" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="41" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="41" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="41" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="59" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="59" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="59" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="59" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="59" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="59" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="77" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="77" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="77" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="77" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="77" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="77" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="95" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="95" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="95" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="95" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="95" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="95" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="113" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="113" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="113" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="113" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="113" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="131" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="131" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="131" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="131" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="131" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="131" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="22" y="147" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="53" y="147" width="16" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="85" y="147" width="13" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="116" y="147" width="15" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="147" y="147" width="14" height="4.5" rx="2.25" />
+                  <rect class="rv-val" x="179" y="147" width="16" height="4.5" rx="2.25" />
+                </g>
+                </g>
+              </svg>
+            </div>
+            <figcaption id="reject-visual-cap">Familiar but wrong to unfamiliar but right: a form
+              made you scroll through hundreds of fields one at a time; the table lets you scan,
+              compare, and edit values in place.</figcaption>
+          </figure>
+        </section>
+
+        <!-- COMPARE & ANALYZE DEEP-DIVE -->
+        <section id="compare-deep" class="section" aria-labelledby="compare-deep-h">
+          <h2 id="compare-deep-h">Deep dive: Compare &amp; Analyze screen</h2>
+          <p>Today, modelers are handed raw metrics and build their analysis from the ground up,
+            every single time. The feedback was clear: it would help to get a recommendation for the
+            simple baseline checks, so their analysis doesn't restart from zero on every comparison.</p>
+
+          <figure class="figure-zoom">
+            <a href="img/screen-compare.png" target="_blank" rel="noopener"
+               aria-label="Open the full-size Compare and Analyze screen in a new tab">
+              <img src="img/screen-compare.png" width="1600" height="1000"
+                   alt="Compare and Analyze screen: baseline suite vs. challenger suite selection with an evaluation-period date range and a Run action."
+                   loading="lazy" decoding="async" />
+            </a>
+            <figcaption>Compare &amp; Analyze: configure a baseline-vs-challenger run, then the screen
+              resolves to a verdict with the evidence behind it. <a href="img/screen-compare.png" target="_blank" rel="noopener">Open full size ↗</a></figcaption>
+          </figure>
+
+          <h3>The design response</h3>
+          <p>Two decisions carried the screen: lead with a verdict (DEPLOY, HOLD, or INVESTIGATE)
+            instead of a wall of charts, and never make it a black box, every verdict shows the
+            plain-language reasons behind it so the modeler stays the decision-maker.</p>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the six design decisions</span></summary>
+          <dl class="mechanism">
+            <div>
+              <dt>Constrain the inputs so a bad comparison is impossible</dt>
+              <dd>Suite A (baseline) vs Suite B (challenger) over an evaluation window. Run stays
+                disabled with an inline reason if you pick the same suite twice or invert the date
+                range. Error prevention, not error messages.</dd>
+            </div>
+            <div>
+              <dt>Lead with a verdict, not a chart</dt>
+              <dd>The screen resolves to DEPLOY, HOLD, or INVESTIGATE first. This is the direct
+                answer to the feedback: give modelers the baseline check up front so their expert
+                analysis starts somewhere instead of from scratch.</dd>
+            </div>
+            <div>
+              <dt>Never a black box</dt>
+              <dd>The verdict is computed across four independent lenses (performance, stability,
+                robustness, feature drift), and each writes a plain-language reason
+                (&ldquo;MAE improved: 42 to 38 bps&rdquo;, &ldquo;BREACH: mean error below
+                threshold&rdquo;, &ldquo;base_price_ldl dropped out of top 3&rdquo;). It automates
+                the baseline checks but shows its work, so the human stays the decision-maker.</dd>
+            </div>
+            <div>
+              <dt>Progressive disclosure of the evidence</dt>
+              <dd>Verdict, then KPI strip, then robustness and out-of-time trend, then
+                feature, coefficient, and calibration detail, then metadata. Stop reading when
+                you're convinced.</dd>
+            </div>
+            <div>
+              <dt>Two model families, two kinds of proof</dt>
+              <dd>A tab switches between Market Value (feature-rank table) and Winchance (coefficient
+                signs plus calibration against a log-score threshold). Same shell,
+                model-appropriate evidence.</dd>
+            </div>
+            <div>
+              <dt>Close the governance loop</dt>
+              <dd>Export to PDF, because a deploy decision needs an audit trail for sign-off.</dd>
+            </div>
+          </dl>
+          </details>
+
+          <blockquote class="nugget">
+            <p>The hard part wasn't layout, it was deciding how much to automate. The feedback asked
+              for baseline recommendations, not a machine that overrides experts. So I designed the
+              reasoning to be visible: the system does the repetitive first pass, the modeler keeps
+              authorship of the call.</p>
+          </blockquote>
+        </section>
+
+        <!-- ALTERNATIVES CONSIDERED -->
+        <section id="alternatives" class="section" aria-labelledby="alt-h">
+          <h2 id="alt-h">Alternatives I considered (and dropped)</h2>
+          <p class="tldr">The final guidance pattern wasn't the first idea.
+            It won because it reduced errors without crowding a dense, data-heavy screen.</p>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the alternatives table</span></summary>
+          <div class="table-scroll">
+            <table>
+              <caption>Directions I explored, why each was set aside, and what I kept from it.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Direction</th>
+                  <th scope="col">Why I dropped it</th>
+                  <th scope="col">What I kept</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Always-visible inline help under every field</th>
+                  <td>Overloaded an already dense screen; users skimmed past it.</td>
+                  <td>Kept short helper text, but only reactive to input.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Modal &ldquo;wizard&rdquo; for configuration</th>
+                  <td>Hid the overview and blocked power users doing quick edits.</td>
+                  <td>Kept the guided sequence as optional, not forced.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Separate &ldquo;help center&rdquo; area</th>
+                  <td>Pulled users out of context; guidance went stale and unused.</td>
+                  <td>Moved to in-context side panel, owned by product.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Flat 8-item navigation</th>
+                  <td>Didn't answer &ldquo;where am I in the process&rdquo;, the core complaint.</td>
+                  <td>Replaced with the 4-phase lifecycle IA.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </details>
+        </section>
+
+        <!-- CONSTRAINTS -->
+        <section id="constraints" class="section" aria-labelledby="constraints-h">
+          <h2 id="constraints-h">Constraints &amp; tradeoffs</h2>
+          <p class="tldr">Real bandwidth and ownership boundaries shaped
+            the design as much as the research did.</p>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: constraints &amp; tradeoffs</span></summary>
+          <ul class="tradeoffs">
+            <li>
+              <p class="tradeoff-constraint"><span class="tradeoff-label">Constraint</span>
+                Users were new to model concepts.</p>
+              <p class="tradeoff-response"><span class="tradeoff-label">Tradeoff</span>
+                Built guidance into the UI rather than relying on training alone.</p>
+            </li>
+            <li>
+              <p class="tradeoff-constraint"><span class="tradeoff-label">Constraint</span>
+                Inputs were error-prone.</p>
+              <p class="tradeoff-response"><span class="tradeoff-label">Tradeoff</span>
+                Added helper-text and validation patterns without overloading the screens.</p>
+            </li>
+            <li>
+              <p class="tradeoff-constraint"><span class="tradeoff-label">Constraint</span>
+                Engineering bandwidth pushed the build to Q3.</p>
+              <p class="tradeoff-response"><span class="tradeoff-label">Tradeoff</span>
+                Prioritized high-risk workflows first (Configurations, Compare &amp; Analyze).</p>
+            </li>
+            <li>
+              <p class="tradeoff-constraint"><span class="tradeoff-label">Constraint</span>
+                Sensitive details are redacted.</p>
+              <p class="tradeoff-response"><span class="tradeoff-label">Tradeoff</span>
+                Showed mechanisms and patterns instead of proprietary data (see the note below).</p>
+            </li>
+          </ul>
+          </details>
+        </section>
+
+        <!-- MEASURE -->
+        <section id="measure" class="section" aria-labelledby="measure-h">
+          <h2 id="measure-h">What I'd measure next</h2>
+          <p class="tldr">A metrics plan to capture after the Q3 build ships.</p>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: the metrics plan</span></summary>
+          <ul>
+            <li><strong>Error rate:</strong> typos and formatting errors on key inputs.</li>
+            <li><strong>Time-to-complete:</strong> for key tasks, especially configuration.</li>
+            <li><strong>Ownership shift:</strong> number of pricing-driven config changes vs. product-team changes.</li>
+            <li><strong>Support load:</strong> reduction in questions and escalations.</li>
+            <li><strong>Guidance adoption:</strong> Reference Guide usage.</li>
+          </ul>
+          </details>
+        </section>
+
+        <!-- DIFFERENTLY -->
+        <section id="differently" class="section" aria-labelledby="differently-h">
+          <h2 id="differently-h">What I'd do differently</h2>
+          <p class="tldr">Instrument earlier, and pressure-test the
+            in-context help with brand-new users sooner.</p>
+          <blockquote class="nugget">
+            <p class="nugget-label">Prototyping over debating</p>
+            <p>Instead of debating whether a dynamic table was too much, I prototyped one in
+              VS Code. Seeing it live shifted the conversation from “can we even do this?”
+              to “how should this behave?”</p>
+          </blockquote>
+          <details class="more">
+            <summary><span class="more-label">Optional deep-dive: a decision I rethought</span></summary>
+          <ul>
+            <li>Define the measurement plan and event instrumentation during design, not after, so
+              baselines exist the moment the build ships.</li>
+            <li>Recruit more first-time users earlier to stress-test whether the guidance truly
+              closes the context gap.</li>
+            <li>Prototype the handoff workflow (pricing team owning configs) with the actual owners
+              sooner to de-risk the ownership transition.</li>
+          </ul>
+          <h3>Overcoming hesitation by prototyping</h3>
+          <p>Early on, the team was hesitant about how much functionality to put into a table. They
+            weren't familiar with building dynamic, interactive tables and worried it was too much to
+            take on. Rather than debate it in the abstract, I prototyped in VS Code and showed
+            them a working example built on AG Grid. Seeing sorting, inline editing, and validation
+            live in a real table shifted the conversation from &ldquo;can we even do this?&rdquo; to
+            &ldquo;how should this behave?&rdquo; Prototyping unblocked the decision and
+            gave the team confidence to move forward.</p>
+          </details>
+        </section>
+
+      </div><!-- /content -->
+    </div><!-- /layout -->
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <section class="redactions" aria-labelledby="redactions-h">
+        <h2 id="redactions-h">Redactions &amp; confidentiality</h2>
+        <p>Company and internal details are anonymized. The product's logo, wordmark, and any
+          teammate names/IDs visible in the original screenshots have been removed or obscured.
+          Team names are generalized (pricing team, product team, modeling &amp; analytics team)
+          and no proprietary model details or sensitive metrics are shown. The only performance
+          figure shared, hours to minutes, is attributable to the pricing model, not to UX.</p>
+      </section>
+      <div class="footer-row">
+        <p class="copyright">&copy; <span id="year"></span> Sarah Rhee</p>
+        <div class="footer-links">
+          <a href="../index.html">All work</a>
+          <a href="mailto:sarah.ys.rhee@gmail.com">Email</a>
+          <a href="#">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous screenshot">&#8249;</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next screenshot">&#8250;</button>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Active-section highlight for the desktop TOC. Progressive enhancement only;
+    // the page is fully usable without JS. Respects reduced-motion via CSS.
+    (function () {
+      var links = Array.prototype.slice.call(
+        document.querySelectorAll('.toc-desktop a')
+      );
+      if (!links.length || !('IntersectionObserver' in window)) return;
+
+      var byId = {};
+      links.forEach(function (a) {
+        byId[a.getAttribute('href').slice(1)] = a;
+      });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var link = byId[entry.target.id];
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(function (l) {
+              l.removeAttribute('aria-current');
+            });
+            link.setAttribute('aria-current', 'true');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      document.querySelectorAll('.content .section').forEach(function (s) {
+        observer.observe(s);
+      });
+    })();
+
+    // Click-to-expand lightbox for the screenshot gallery, with carousel
+    // navigation. Progressive enhancement — without JS the images render normally.
+    (function () {
+      var box = document.getElementById('lightbox');
+      var boxImg = document.getElementById('lightbox-img');
+      var caption = document.getElementById('lightbox-caption');
+      var closeBtn = document.getElementById('lightbox-close');
+      var prevBtn = document.getElementById('lightbox-prev');
+      var nextBtn = document.getElementById('lightbox-next');
+      if (!box || !boxImg) return;
+
+      var items = [];
+      var index = 0;
+      var lastFocused = null;
+
+      function show(i) {
+        index = (i + items.length) % items.length;
+        var item = items[index];
+        boxImg.setAttribute('src', item.src);
+        boxImg.setAttribute('alt', item.alt);
+        caption.textContent = item.caption;
+      }
+
+      function open(i) {
+        show(i);
+        box.setAttribute('aria-hidden', 'false');
+        lastFocused = document.activeElement;
+        closeBtn.focus();
+      }
+
+      function close() {
+        box.setAttribute('aria-hidden', 'true');
+        boxImg.setAttribute('src', '');
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+
+      document.querySelectorAll('.screens-gallery figure').forEach(function (fig) {
+        var img = fig.querySelector('img');
+        if (!img) return;
+        var cap = fig.querySelector('figcaption');
+        var i = items.length;
+        items.push({
+          src: img.getAttribute('src'),
+          alt: img.getAttribute('alt') || '',
+          caption: cap ? cap.textContent.trim() : ''
+        });
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'zoomable';
+        btn.setAttribute('aria-label', 'Expand ' + (img.getAttribute('alt') || 'screenshot'));
+        img.parentNode.insertBefore(btn, img);
+        btn.appendChild(img);
+        btn.addEventListener('click', function () { open(i); });
+      });
+
+      if (items.length < 2) {
+        prevBtn.hidden = true;
+        nextBtn.hidden = true;
+      }
+
+      prevBtn.addEventListener('click', function () { show(index - 1); });
+      nextBtn.addEventListener('click', function () { show(index + 1); });
+      box.addEventListener('click', function (e) {
+        if (e.target === box || e.target === boxImg.parentNode) close();
+      });
+      closeBtn.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (box.getAttribute('aria-hidden') !== 'false') return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') show(index - 1);
+        else if (e.key === 'ArrowRight') show(index + 1);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -3,67 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>Sarah Rhee — UX Designer</title>
   <meta name="description" content="Sarah Rhee is a UX designer focused on clear, usable, human-centered digital products." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styles-editorial.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-inner">
       <a href="index.html" class="logo">Sarah Rhee</a>
-      <nav>
+      <div class="header-right">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="mailto:sarah.ys.rhee@gmail.com">Contact</a></li>
-        </ul>
-      </nav>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mailto:sarah.ys.rhee@gmail.com">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero wrap">
-      <p class="hero-eyebrow">UX Designer</p>
-      <h1>Designing products that are easy to understand and hard to misuse.</h1>
-      <p class="lead">
-        I'm Sarah, a UX designer who works across research, interaction design,
-        and visual craft to help teams ship products people actually enjoy using.
-      </p>
-    </section>
+  <main id="main">
+    <div class="wrap">
+      <section class="hero-page">
+        <p class="eyebrow-accent">UX Designer</p>
+        <h1>Designing products that are easy to understand and hard to misuse.</h1>
+        <p class="subtitle">
+          I'm Sarah, a UX designer who works across research, interaction design,
+          and visual craft to help teams ship products people actually enjoy using.
+        </p>
+      </section>
 
-    <section class="wrap">
-      <div class="section-heading reveal">
-        <h2>Selected work</h2>
-      </div>
+      <section aria-labelledby="work-h">
+        <h2 id="work-h" class="visually-hidden">Selected work</h2>
+        <div class="work-list">
+          <a href="work/pricing-model-dashboard.html" class="work-card reveal">
+            <div class="work-card-media">
+              <img src="work/img/home-real.png" alt="Redesigned Home / Overview screen of the pricing model operations dashboard" loading="lazy" />
+            </div>
+            <div>
+              <p class="work-card-tag">Case Study · Internal Tool</p>
+              <h3 class="work-card-title">Pricing Model Operations Dashboard</h3>
+              <p class="work-card-desc">Redesigning an internal model-ops dashboard to reduce error risk and enable business ownership.</p>
+              <div class="work-card-meta">
+                <span>UX Designer</span>
+                <span>Jan – Jun 2026</span>
+                <span>8 screens shipped</span>
+              </div>
+            </div>
+          </a>
 
-      <div class="work-grid">
-        <a href="work/case-study-one.html" class="card reveal">
-          <div class="card-media">
-            <div class="placeholder">Project cover image</div>
-          </div>
-          <div class="card-body">
-            <p class="card-tag">Case Study · Mobile App</p>
-            <h3 class="card-title">Project title goes here</h3>
-            <p class="card-desc">One-line summary of the problem and outcome of this project.</p>
-          </div>
-        </a>
-
-        <div class="card reveal" style="opacity: 0.5; pointer-events: none;">
-          <div class="card-media">
-            <div class="placeholder">More work coming soon</div>
-          </div>
-          <div class="card-body">
-            <p class="card-tag">Case Study</p>
-            <h3 class="card-title">Next project</h3>
-            <p class="card-desc">Placeholder — add your next case study here.</p>
+          <div class="work-card reveal" style="opacity: 0.5; pointer-events: none;">
+            <div class="work-card-media">
+              <div class="placeholder">More work coming soon</div>
+            </div>
+            <div>
+              <p class="work-card-tag">Case Study</p>
+              <h3 class="work-card-title">Next project</h3>
+              <p class="work-card-desc">Placeholder — add your next case study here.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
