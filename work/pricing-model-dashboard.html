@@ -269,7 +269,7 @@
           <p>The model cut runtime from hours to minutes, but managing it meant editing configs in
             Excel and filing a request to product for every change. A small team makes high-volume,
             high-value pricing decisions daily, so one mishandled input carries real financial
-            weight. The risk was never speed. It was confidence, correctness, and control.</p>
+            weight. The risk wasn't speed — it was confidence, correctness, and control.</p>
         </section>
 
         <!-- CURRENT-STATE WORKFLOW -->
@@ -377,9 +377,8 @@
             parameters, they wanted to understand the impact of every edit, with enough context to
             trust it.</p>
           <blockquote class="nugget">
-            <p>My role wasn't to collect requirements, it was to broker a gap. Product optimized for
-              speed of editing. The business optimized for confidence in the outcome. Every screen
-              after this had to serve both.</p>
+            <p>Product wanted an easy way to edit configs. The pricing team wanted to trust the
+              results before they used them. Every screen after this had to work for both.</p>
           </blockquote>
 
           <figure class="diagram-figure">
@@ -419,9 +418,9 @@
           <p>Interviews with pricing and modeling users surfaced four consistent themes.</p>
           <blockquote class="nugget">
             <p class="nugget-label">What I learned</p>
-            <p>Users hit unfamiliar terminology and assumed a steep learning curve, but the pricing
-              concepts hadn't changed. That shifted the problem from “teach a whole new system”
-              to “bridge the vocabulary.”</p>
+            <p>Users assumed the learning curve would be steep because the terminology was new.
+              But the pricing concepts hadn't changed — the real problem was unfamiliar words,
+              not a new system to learn.</p>
           </blockquote>
           <p class="nugget-label">What came up in interviews</p>
           <ul class="nugget-grid">
@@ -831,9 +830,9 @@
                 </g>
               </svg>
             </div>
-            <figcaption id="reject-visual-cap">Familiar but wrong to unfamiliar but right: a form
-              made you scroll through hundreds of fields one at a time; the table lets you scan,
-              compare, and edit values in place.</figcaption>
+            <figcaption id="reject-visual-cap">A form is the familiar pattern, but with hundreds
+              of fields it just means scrolling through them one at a time. The table lets you
+              scan, compare, and edit values in place.</figcaption>
           </figure>
         </section>
 
@@ -856,9 +855,9 @@
           </figure>
 
           <h3>The design response</h3>
-          <p>Two decisions carried the screen: lead with a verdict (DEPLOY, HOLD, or INVESTIGATE)
-            instead of a wall of charts, and never make it a black box, every verdict shows the
-            plain-language reasons behind it so the modeler stays the decision-maker.</p>
+          <p>Two decisions mattered most: lead with a verdict (DEPLOY, HOLD, or INVESTIGATE)
+            instead of a wall of charts, and show the reasoning behind every verdict in plain
+            language so the modeler can check it, not just trust it.</p>
           <details class="more">
             <summary><span class="more-label">Optional deep-dive: the six design decisions</span></summary>
           <dl class="mechanism">
@@ -875,12 +874,12 @@
                 analysis starts somewhere instead of from scratch.</dd>
             </div>
             <div>
-              <dt>Never a black box</dt>
-              <dd>The verdict is computed across four independent lenses (performance, stability,
-                robustness, feature drift), and each writes a plain-language reason
+              <dt>Show the reasoning</dt>
+              <dd>The verdict comes from four checks (performance, stability, robustness, feature
+                drift), and each one writes a plain-language reason
                 (&ldquo;MAE improved: 42 to 38 bps&rdquo;, &ldquo;BREACH: mean error below
                 threshold&rdquo;, &ldquo;base_price_ldl dropped out of top 3&rdquo;). It automates
-                the baseline checks but shows its work, so the human stays the decision-maker.</dd>
+                the baseline check, but the modeler can see why.</dd>
             </div>
             <div>
               <dt>Progressive disclosure of the evidence</dt>
@@ -903,9 +902,9 @@
 
           <blockquote class="nugget">
             <p>The hard part wasn't layout, it was deciding how much to automate. The feedback asked
-              for baseline recommendations, not a machine that overrides experts. So I designed the
-              reasoning to be visible: the system does the repetitive first pass, the modeler keeps
-              authorship of the call.</p>
+              for baseline recommendations, not something that overrides experts, so I made the
+              reasoning visible: the system does the repetitive first pass, the modeler makes the
+              call.</p>
           </blockquote>
         </section>
 
@@ -1012,9 +1011,9 @@
             in-context help with brand-new users sooner.</p>
           <blockquote class="nugget">
             <p class="nugget-label">Prototyping over debating</p>
-            <p>Instead of debating whether a dynamic table was too much, I prototyped one in
-              VS Code. Seeing it live shifted the conversation from “can we even do this?”
-              to “how should this behave?”</p>
+            <p>Instead of debating whether a dynamic table was too much, I just prototyped one in
+              VS Code. Once the team could see it working, the conversation moved from whether we
+              could build it to how it should behave.</p>
           </blockquote>
           <details class="more">
             <summary><span class="more-label">Optional deep-dive: a decision I rethought</span></summary>
@@ -1030,10 +1029,9 @@
           <p>Early on, the team was hesitant about how much functionality to put into a table. They
             weren't familiar with building dynamic, interactive tables and worried it was too much to
             take on. Rather than debate it in the abstract, I prototyped in VS Code and showed
-            them a working example built on AG Grid. Seeing sorting, inline editing, and validation
-            live in a real table shifted the conversation from &ldquo;can we even do this?&rdquo; to
-            &ldquo;how should this behave?&rdquo; Prototyping unblocked the decision and
-            gave the team confidence to move forward.</p>
+            them a working example built on AG Grid. Once they could see sorting, inline editing,
+            and validation working in a real table, the conversation moved from whether we could
+            build it to how it should behave.</p>
           </details>
         </section>
 
