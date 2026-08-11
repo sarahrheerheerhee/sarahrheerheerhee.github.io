@@ -36,67 +36,51 @@
 
   <main id="main" class="wrap">
 
-    <!-- BENTO HERO -->
-    <section class="bento" aria-labelledby="title">
-      <div class="tile tile-primary">
-        <p class="eyebrow-accent">UX Case Study</p>
-        <h1 id="title">Pricing Model Operations Dashboard</h1>
-        <p class="subtitle">
-          Redesigning an internal model-ops dashboard to reduce error risk and
-          enable business ownership.
-        </p>
-        <dl class="case-summary">
-          <div>
-            <dt>Users</dt>
-            <dd>Pricing operators + modeling analysts.</dd>
-          </div>
-          <div>
-            <dt>Job</dt>
-            <dd>Operate, validate, and release pricing models end to end.</dd>
-          </div>
-          <div>
-            <dt>Friction</dt>
-            <dd>Input errors and low confidence. Users couldn't see the impact of their changes.</dd>
-          </div>
-          <div>
-            <dt>What I changed</dt>
-            <dd>Workflow IA across 8 screens, an in-context guidance system, and a handoff that lets the business own its own configuration.</dd>
-          </div>
-          <div>
-            <dt>Status</dt>
-            <dd>Design delivered Jun 26; build Q3; metrics plan ready.</dd>
-          </div>
-        </dl>
-      </div>
-
-      <figure class="tile tile-visual">
-        <img src="img/home-real.png" width="1600" height="1000"
-             alt="The redesigned Home / Overview screen: a dashboard with at-a-glance summary cards, model status, and quick access to key workflow phases."
-             loading="eager" decoding="async" />
-        <figcaption>Home / Overview: at-a-glance summary and quick access.</figcaption>
-      </figure>
-
-      <div class="tile tile-status">
-        <p class="small-label">Status</p>
-        <p class="badge">Design delivered</p>
-        <p class="tile-status-note">Jun 26, 2026 · Engineering build scheduled Q3.</p>
-      </div>
-
-      <ul class="tile tile-stats" aria-label="Key stats">
-        <li class="chip">
-          <span class="chip-num">1 to 8 screens</span>
-          <span class="chip-label">Expanded from a single view to an end-to-end suite: Build → Validate → Release → Monitor.</span>
-        </li>
-        <li class="chip">
-          <span class="chip-num">High-volume, high-value</span>
-          <span class="chip-label">A small team makes high-volume, high-value pricing decisions daily, so usability and error-safety carry real financial weight.</span>
-        </li>
-        <li class="chip">
-          <span class="chip-num">Excel to guided app</span>
-          <span class="chip-label">Replaced an error-prone Excel-upload process with in-app inputs, inline guidance, and validation.</span>
-        </li>
-      </ul>
+    <!-- HERO -->
+    <section class="case-hero" aria-labelledby="title">
+      <p class="eyebrow-accent">UX Case Study</p>
+      <h1 id="title">Pricing Model Operations Dashboard</h1>
+      <p class="subtitle">
+        Redesigning an internal model-ops dashboard to reduce error risk and
+        enable business ownership.
+      </p>
+      <dl class="case-meta-row">
+        <div>
+          <dt>Role</dt>
+          <dd>UX Designer</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd>Jan – Jun 2026</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd><span class="status-dot" aria-hidden="true"></span>Design delivered</dd>
+        </div>
+      </dl>
     </section>
+
+    <figure class="case-hero-image">
+      <img src="img/home-real.png" width="1600" height="1000"
+           alt="The redesigned Home / Overview screen: a dashboard with at-a-glance summary cards, model status, and quick access to key workflow phases."
+           loading="eager" decoding="async" />
+      <figcaption>Home / Overview: at-a-glance summary and quick access.</figcaption>
+    </figure>
+
+    <ul class="case-stats-row" aria-label="Key stats">
+      <li>
+        <span class="num">1 to 8 screens</span>
+        <span class="desc">Expanded from a single view to an end-to-end suite: Build → Validate → Release → Monitor.</span>
+      </li>
+      <li>
+        <span class="num">High-volume, high-value</span>
+        <span class="desc">A small team makes high-volume, high-value pricing decisions daily, so usability and error-safety carry real financial weight.</span>
+      </li>
+      <li>
+        <span class="num">Excel to guided app</span>
+        <span class="desc">Replaced an error-prone Excel-upload process with in-app inputs, inline guidance, and validation.</span>
+      </li>
+    </ul>
 
     <!-- SUMMARY PANEL (complementary metadata, not a repeat of the hero) -->
     <section class="summary" aria-labelledby="summary-h">
