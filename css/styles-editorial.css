@@ -249,7 +249,8 @@ table { border-collapse: collapse; width: 100%; }
 .content { min-width: 0; }
 
 /* ============ SECTIONS ============ */
-.section { padding-bottom: var(--space-6); scroll-margin-top: 6rem; max-width: 46rem; }
+.section { padding-bottom: var(--space-6); scroll-margin-top: 6rem; }
+.content p, .content li, .content dd, .content blockquote { max-width: 42rem; }
 .section h2 { font-size: 1.6rem; margin-bottom: var(--space-2); }
 .section h3 { font-size: 1.15rem; margin: var(--space-3) 0 0.75rem; }
 .section p { color: var(--ink-muted); margin-bottom: var(--space-2); }
@@ -500,8 +501,8 @@ tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
 .work-card-desc { color: var(--ink-muted); font-size: 0.95rem; }
 .work-card-meta { display: flex; gap: var(--space-3); margin-top: var(--space-2); font-size: 0.82rem; color: var(--ink-faint); }
 
-.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: var(--space-5); align-items: start; padding: var(--space-5) 0; }
-.about-photo { aspect-ratio: 1; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 16rem 1fr; gap: var(--space-5); align-items: start; padding: var(--space-5) 0; }
+.about-photo { aspect-ratio: 1; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); max-width: 16rem; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
 .about-bio p { margin-bottom: var(--space-3); color: var(--ink-muted); max-width: 38rem; }
 .skills-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 var(--space-3); margin-top: var(--space-4); }
